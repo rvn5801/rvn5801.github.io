@@ -2389,7 +2389,7 @@
                 description: 'Built a scalable visual search system processing 10,000+ image assets using CLIP ViT-Large embeddings and Pinecone vector database indexing on GCP. Containerized and deployed on serverless Cloud Run, resolving critical performance bottlenecks for reliable, high-throughput retrieval.',
                 image: null,
                 tags: ['CLIP / ViT-Large', 'Pinecone', 'GCP', 'Cloud Run', 'Docker', 'Vector Search'],
-                github: 'https://github.com/rvn5801',
+                github: 'https://github.com/rvn5801/ghost-part-hunter',
                 demo: null,
                 featured: true,
                 stats: '10K+ Assets'
@@ -2413,7 +2413,7 @@
                 description: 'Designed a large-scale document processing pipeline handling 100K+ documents at 73% accuracy using a custom LLM-based hierarchical taxonomy. Reduced retrieval latency by 40% with OpenSearch vector indexing and cut report generation time by 98% (4 hrs → 5 min) via a Django dashboard.',
                 image: null,
                 tags: ['LLMs', 'NLP', 'OpenSearch', 'Django', 'Python', 'Vector Indexing'],
-                github: null,
+                github: 'https://github.com/rvn5801/Document_classification',
                 demo: null,
                 featured: true,
                 stats: '100K+ Docs'
@@ -2438,7 +2438,7 @@
                 image: 'assets/agent_demo.gif',
                 video: 'assets/agent_demo.mp4',
                 tags: ['Python', 'Bioinformatics', 'Agent-Based Modeling', 'Visualization', 'Scanpy'],
-                github: 'https://github.com/rvn5801',
+                github: 'https://github.com/rvn5801/AI-Systems-for-SC-analysis ',
                 demo: null,
                 featured: true,
                 stats: '3+ Scenarios'
@@ -2446,6 +2446,36 @@
         ];
 
         const experiences = [
+            {
+                id: 3,
+                role: 'Research Support Specialist',
+                company: 'Stony Brook Cancer Center',
+                location: 'Stony Brook, NY',
+                date: 'Jun 2026 – Present',
+                focus: 'Computational Genomics · Applied AI Research · Statistical Validation',
+                tags: ['Python', 'AlphaGenome', 'SciPy', 'Monte Carlo', 'Pandas', 'Parquet', 'Pipeline Dev'],
+                highlights: [
+                    'Built an end-to-end genomics pipeline combining <strong>COSMIC mutational signatures</strong> with DeepMind\'s <strong>AlphaGenome</strong> sequence-to-function model, statistically testing whether signature-driven mutations produce different regulatory effects than chance across multiple chromosomes',
+                    'Debugged a reverse-complement transformation bug silently corrupting <strong>~50%</strong> of a 192-context probability table, then built an independent Monte Carlo validator over <strong>10,000 iterations</strong> that confirmed <strong>0.9998 cosine-similarity</strong> fidelity against ground-truth signature distributions',
+                    'Ran non-parametric <strong>Kolmogorov-Smirnov</strong> hypothesis testing across variant populations, surfacing <strong>7 of 38</strong> significant track comparisons (p&lt;0.05, N=500) and catching an underpowered N=100 run that had masked real signal',
+                    'Refactored a linear research notebook into <strong>five reusable, interval-agnostic Python modules</strong> with disk-persisted checkpointing and skip-if-exists logic, making multi-day batch runs resumable without re-incurring costly API calls'
+                ]
+            },
+            {
+                id: 4,
+                role: 'AI Engineer',
+                company: 'ChiEAC (Chicago Advocacy Education Corporation)',
+                location: 'Remote',
+                date: 'Apr 2026 – Present',
+                focus: 'Full-Stack Development · Applied AI · Production Observability',
+                tags: ['FastAPI', 'Next.js 14', 'GPT-4o', 'LangChain', 'SQLAlchemy', 'Redis', 'Prometheus', 'ChromaDB', 'Docker'],
+                highlights: [
+                    'Architected <strong>MatchMyCancer.ai</strong>, a full-stack clinical AI platform (GPT-4o, FastAPI, Next.js 14) that extracts biomarkers from uploaded oncology reports and matches them to FDA-approved therapies and live ClinicalTrials.gov trials, executing entirely in-memory to guarantee <strong>zero PHI persistence</strong>',
+                    'Replaced hallucinated continuous LLM confidence scores with a source-attribution-driven <strong>HIGH / MEDIUM / LOW tier system</strong>, mapping every extracted biomarker to its exact character span in the source document so clinicians can audit each claim in seconds',
+                    'Built production observability and cost controls (Prometheus instrumentation, Redis daily spend ceiling, per-IP rate limiting, env-var kill switch) plus an evaluation harness scoring <strong>20 curated TCGA ground-truth reports</strong> on per-biomarker precision, recall, and F1',
+                    'Designed <strong>11 REST endpoints</strong> across 4 database tables (SQLAlchemy 2.0, Alembic migrations) with server-sent-event streaming for real-time progress, backed by a <strong>28/28</strong> passing core test suite and <strong>13</strong> documented architecture decision records'
+                ]
+            },
             {
                 id: 1,
                 role: 'Graduate Research Assistant',
