@@ -957,6 +957,49 @@
             width: fit-content;
         }
 
+        .experience-item .glass-card { position: relative; }
+
+        .exp-live-link {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.35);
+            color: #34d399;
+            padding: 0.45rem 0.85rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .exp-live-link::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #34d399;
+            box-shadow: 0 0 8px #34d399;
+        }
+
+        .exp-live-link:hover {
+            background: rgba(52, 211, 153, 0.18);
+            border-color: rgba(52, 211, 153, 0.6);
+            box-shadow: 0 4px 18px rgba(52, 211, 153, 0.15);
+        }
+
+        @media (max-width: 640px) {
+            .exp-live-link {
+                position: static;
+                margin-bottom: 1rem;
+            }
+        }
+
         .exp-role {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.3rem;
@@ -1935,24 +1978,6 @@
                     <p>My expertise spans deep learning, NLP, statistical modeling, and large-scale data processing. I enjoy building end-to-end solutions that bridge the gap between research and production systems.</p>
                     <p>When I'm not coding or analyzing data, you can find me exploring new ML techniques, contributing to open-source projects, or mentoring aspiring data scientists.</p>
                 </div>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">6+</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">7</div>
-                        <div class="stat-label">Skill Areas</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4</div>
-                        <div class="stat-label">Publications</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">1+</div>
-                        <div class="stat-label">Years Research</div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -2460,24 +2485,28 @@
                 tags: ['Python', 'AlphaGenome', 'SciPy', 'Monte Carlo', 'Pandas', 'Parquet', 'Pipeline Dev'],
                 highlights: [
                     'Built an end-to-end genomics pipeline combining <strong>COSMIC mutational signatures</strong> with DeepMind\'s <strong>AlphaGenome</strong> sequence-to-function model, statistically testing whether signature-driven mutations produce different regulatory effects than chance across multiple chromosomes',
-                    'Debugged a reverse-complement transformation bug silently corrupting <strong>~50%</strong> of a 192-context probability table, then built an independent Monte Carlo validator over <strong>10,000 iterations</strong> that confirmed <strong>0.9998 cosine-similarity</strong> fidelity against ground-truth signature distributions',
-                    'Ran non-parametric <strong>Kolmogorov-Smirnov</strong> hypothesis testing across variant populations, surfacing <strong>7 of 38</strong> significant track comparisons (p&lt;0.05, N=500) and catching an underpowered N=100 run that had masked real signal',
-                    'Refactored a linear research notebook into <strong>five reusable, interval-agnostic Python modules</strong> with disk-persisted checkpointing and skip-if-exists logic, making multi-day batch runs resumable without re-incurring costly API calls'
+                    'Engineered a genome-scale TFBS mutational vulnerability framework simulating 80M synthetic binding-site sequences across 174 human transcription factor motifs (JASPAR) and 47 COSMIC SBS signatures, implementing a complete PFM→PPM→PWM scoring pipeline to quantify mutation-induced binding affinity changes',
+                    'Performed large-scale statistical analysis across 40,232 signature–motif comparisons using Mann-Whitney U, Wilcoxon signed-rank, Benjamini-Hochberg FDR correction, and effect size metrics, discovering a significant negative correlation between motif GC preference and COSMIC mutational impact',
+                    'Optimized research infrastructure by refactoring exploratory notebooks into reusable, interval-agnostic Python modules with checkpointing, resumable execution, and zero-code extensibility for new COSMIC signatures or JASPAR matrices, enabling efficient multi-day genome-scale analyses',
+                    'Developed a comprehensive data validation framework to ensure the integrity and consistency of large-scale genomics datasets, implementing automated checks and reporting mechanisms to identify and resolve data quality issues.'
                 ]
             },
             {
                 id: 4,
-                role: 'AI Engineer',
+                role: 'AI Engineer · Volunteer',
                 company: 'ChiEAC (Chicago Advocacy Education Corporation)',
                 location: 'Remote',
                 date: 'Apr 2026 – Present',
+                liveLink: 'https://matchmy-cancer.vercel.app/',
+                liveLabel: 'MatchMyCancer.ai',
                 focus: 'Full-Stack Development · Applied AI · Production Observability',
-                tags: ['FastAPI', 'Next.js 14', 'GPT-4o', 'LangChain', 'SQLAlchemy', 'Redis', 'Prometheus', 'ChromaDB', 'Docker'],
+                tags: ['FastAPI', 'Next.js', 'TypeScript', 'LangChain', 'OpenAI', 'Tesseract OCR', 'Azure Container Apps', 'Vercel', 'Redis', 'ChromaDB', 'Docker'],
                 highlights: [
-                    'Architected <strong>MatchMyCancer.ai</strong>, a full-stack clinical AI platform (GPT-4o, FastAPI, Next.js 14) that extracts biomarkers from uploaded oncology reports and matches them to FDA-approved therapies and live ClinicalTrials.gov trials, executing entirely in-memory to guarantee <strong>zero PHI persistence</strong>',
-                    'Replaced hallucinated continuous LLM confidence scores with a source-attribution-driven <strong>HIGH / MEDIUM / LOW tier system</strong>, mapping every extracted biomarker to its exact character span in the source document so clinicians can audit each claim in seconds',
-                    'Built production observability and cost controls (Prometheus instrumentation, Redis daily spend ceiling, per-IP rate limiting, env-var kill switch) plus an evaluation harness scoring <strong>20 curated TCGA ground-truth reports</strong> on per-biomarker precision, recall, and F1',
-                    'Designed <strong>11 REST endpoints</strong> across 4 database tables (SQLAlchemy 2.0, Alembic migrations) with server-sent-event streaming for real-time progress, backed by a <strong>28/28</strong> passing core test suite and <strong>13</strong> documented architecture decision records'
+                    'Built and deployed a <strong>full-stack AI platform</strong> that parses oncology pathology reports, extracts biomarkers, and matches patients to relevant <strong>FDA therapies</strong> and live <strong>ClinicalTrials.gov</strong> trials with plain-language eligibility assessments',
+                    'Engineered a <strong>FastAPI</strong> backend with an <strong>LLM pipeline (LangChain + OpenAI)</strong> for biomarker extraction, trial-eligibility summarization, and reasoning traces, plus <strong>Tesseract OCR</strong> for scanned-document ingestion',
+                    'Developed a <strong>Next.js</strong> (App Router, TypeScript) frontend with real-time <strong>Server-Sent Events</strong> streaming to surface analysis results progressively as the pipeline runs',
+                    'Containerized the backend with a <strong>multi-stage Docker</strong> build and deployed to <strong>Azure Container Apps</strong> (scale-to-zero) via Azure Container Registry, shipping the frontend on <strong>Vercel</strong> with CI/CD auto-deploys managing cross-provider secrets, CORS, and custom-domain DNS',
+                    'Integrated <strong>Redis</strong> (Upstash, TLS) for spend tracking and <strong>ChromaDB</strong> for vector-based trial retrieval, and hardened the LLM integration with markdown-fenced JSON parsing, spend ceilings, source-verification guardrails, and confidence scoring for a trustworthy medical use case'
                 ]
             },
             {
@@ -2485,27 +2514,14 @@
                 role: 'Graduate Research Assistant',
                 company: 'Stony Brook Cancer Center',
                 location: 'Stony Brook, NY',
-                date: 'Aug 2025 – Dec 2025',
-                focus: 'Advanced ML Systems · Computational Genomics · Pipeline Engineering',
-                tags: ['Python', 'HPC / SLURM', 'Git', 'FastAPI', 'Linux', 'Pipeline Dev'],
+                date: 'Jan 2025 – Dec 2025',
+                focus: 'Advanced ML Systems · Computational Genomics · Multi-Omics Data Engineering · Pipeline Engineering',
+                tags: ['Python', 'HPC / SLURM', 'Scanpy', 'AnnData', 'Muon', 'SnapATAC2', 'scRNA-seq', 'ATAC-seq', 'WGS', 'FastAPI', 'Git', 'Linux'],
                 highlights: [
                     'Designed and maintained reproducible Python-based computational pipelines on HPC systems, achieving <strong>99% data reproducibility</strong> and a validated <strong>2× runtime speedup</strong> over legacy workflows',
-                    'Owned post-deployment monitoring — implementing structured error logging and automated recovery to maintain data integrity across complex multi-stage genomic workloads',
-                    'Collaborated cross-functionally with data scientists, software engineers, and senior researchers to define analytical requirements and deliver production-grade computational modules',
-                    'Prepared detailed workflow documentation and experiment reports to publication and audit standards, enabling seamless knowledge transfer across the research team'
-                ]
-            },
-            {
-                id: 2,
-                role: 'Graduate Research Assistant',
-                company: 'Stony Brook Cancer Center',
-                location: 'Stony Brook, NY',
-                date: 'Jan 2025 – Jul 2025',
-                focus: 'Multi-Omics Data Engineering · Single-Cell Analysis · Scientific Pipeline Standardization',
-                tags: ['Scanpy', 'AnnData', 'Muon', 'SnapATAC2', 'scRNA-seq', 'ATAC-seq', 'WGS', 'Python'],
-                highlights: [
                     'Analyzed high-dimensional <strong>WGS and single-cell multiome (scRNA-seq + ATAC-seq)</strong> datasets end-to-end — performing QC, expression quantification, HVG selection, and downstream statistical analyses using Scanpy, Muon, and AnnData',
                     'Standardized <strong>3+ legacy NGS workflows</strong> into reproducible Python pipelines with consistent QC protocols, automated error handling, and data integrity checks across the lab',
+                    'Owned post-deployment monitoring implementing structured error logging and automated recovery to maintain data integrity across complex multi-stage genomic workloads',
                     'Refined agent-based computational models to simulate complex acidosis conditions across <strong>3+ experimental scenarios</strong>, interpreting findings in biological context and recommending follow-up analytical approaches',
                     'Partnered with <strong>5+ bench scientists and Ph.D. investigators</strong> to translate raw multi-omics data into actionable biological insights, producing figures and reports for manuscript and grant deliverables'
                 ]
@@ -2721,6 +2737,7 @@
             item.innerHTML = `
                 <div class="timeline-node">💼</div>
                 <div class="glass-card">
+                    ${exp.liveLink ? `<a href="${exp.liveLink}" target="_blank" class="exp-live-link">${exp.liveLabel || 'Live'} ↗</a>` : ''}
                     <div class="exp-date-badge">${exp.date}</div>
                     <div class="exp-role">${exp.role}</div>
                     <div class="exp-company-location">
