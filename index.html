@@ -713,6 +713,18 @@
             letter-spacing: 0.01em;
         }
 
+        .skill-count {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--sk-accent, #94a3b8);
+            background: color-mix(in srgb, var(--sk-accent, #94a3b8) 12%, transparent);
+            border: 1px solid color-mix(in srgb, var(--sk-accent, #94a3b8) 30%, transparent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+        }
+
         .skill-pills {
             display: flex;
             flex-wrap: wrap;
@@ -720,9 +732,9 @@
         }
 
         .skill-pill {
-            background: rgba(124, 58, 237, 0.1);
-            border: 1px solid rgba(124, 58, 237, 0.22);
-            color: #c4b5fd;
+            background: color-mix(in srgb, var(--sk-accent, #7c3aed) 10%, transparent);
+            border: 1px solid color-mix(in srgb, var(--sk-accent, #7c3aed) 24%, transparent);
+            color: color-mix(in srgb, var(--sk-accent, #c4b5fd) 75%, #ffffff);
             padding: 0.3rem 0.75rem;
             border-radius: 6px;
             font-size: 0.78rem;
@@ -733,9 +745,9 @@
         }
 
         .skill-pill:hover {
-            background: rgba(0, 212, 255, 0.1);
-            border-color: rgba(0, 212, 255, 0.28);
-            color: #7dd3fc;
+            background: color-mix(in srgb, var(--sk-accent, #7c3aed) 22%, transparent);
+            border-color: color-mix(in srgb, var(--sk-accent, #7c3aed) 50%, transparent);
+            color: #ffffff;
         }
 
         /* Projects Section */
@@ -1864,11 +1876,11 @@
             <a href="#home" class="logo">VNR</a>
             <ul class="desktop-nav">
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#learning" class="nav-link">Learning</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#hackathons" class="nav-link">Hackathons</a></li>
+                <li><a href="#learning" class="nav-link">Learning</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#publications" class="nav-link">Publications</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -1945,10 +1957,13 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2 class="section-title">Skills & Expertise</h2>
-        <div class="skills-grid" id="skillsGrid"></div>
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-line"></div>
+            <div id="experienceList"></div>
+        </div>
     </section>
 
     <!-- Projects Section -->
@@ -1959,21 +1974,6 @@
         </p>
         <div class="filter-buttons" id="filterButtons"></div>
         <div class="projects-grid" id="projectsGrid"></div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-            <div class="timeline-line"></div>
-            <div id="experienceList"></div>
-        </div>
-    </section>
-
-    <!-- Learning Section -->
-    <section id="learning" class="section">
-        <h2 class="section-title">Learning & Coursework</h2>
-        <div class="learning-folders" id="learningFolders"></div>
     </section>
 
     <!-- Hackathons Section -->
@@ -2097,8 +2097,12 @@
                     </button>
                     <!-- GitHub button — paste your repo URL below -->
                     <a href="https://github.com/rvn5801/RareMatch" target="_blank" class="hk-btn hk-btn-outline">
-                        GitHub 
+                        GitHub
                     </a>
+                    <!-- Certificate — drop the image at assets/rarematch_certificate.png
+                    <button class="hk-btn hk-btn-outline" onclick="openCertModal('RareMatch — Participation Certificate', 'assets/rarematch_certificate.png')">
+                        Certificate
+                    </button> -->
                 </div>
             </div>
 
@@ -2209,6 +2213,18 @@
 
         </div>
         <!-- Add more hackathon cards above this comment -->
+    </section>
+
+    <!-- Learning Section -->
+    <section id="learning" class="section">
+        <h2 class="section-title">Learning & Coursework</h2>
+        <div class="learning-folders" id="learningFolders"></div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid" id="skillsGrid"></div>
     </section>
 
     <!-- Publications Section -->
@@ -2383,28 +2399,16 @@
                 stats: '92.16% Recall'
             },
             {
-                id: 2,
-                title: 'Visual Search Engine & Recommendation Module',
-                category: ['ML/AI', 'Data Engineering'],
-                description: 'Built a scalable visual search system processing 10,000+ image assets using CLIP ViT-Large embeddings and Pinecone vector database indexing on GCP. Containerized and deployed on serverless Cloud Run, resolving critical performance bottlenecks for reliable, high-throughput retrieval.',
+                id: 7,
+                title: 'amfAR HIV/AIDS Policy Intelligence Dashboard',
+                category: ['Data Science', 'ML/AI'],
+                description: 'Built a full-stack epidemiological analytics platform turning 10 years (2014–2023) of CDC HIV surveillance data into policy insights — 25 REST endpoints with ML-powered 2030 forecasting, an interactive US choropleth with state-level equity scoring, racial disparity analysis, and a natural-language-to-SQL chat interface powered by GPT-4o-mini.',
                 image: null,
-                tags: ['CLIP / ViT-Large', 'Pinecone', 'GCP', 'Cloud Run', 'Docker', 'Vector Search'],
-                github: 'https://github.com/rvn5801/ghost-part-hunter',
-                demo: null,
+                tags: ['Python', 'Flask', 'MySQL', 'SciPy', 'Chart.js', 'D3.js', 'GPT-4o-mini'],
+                github: 'https://github.com/rvn5801/amfAR',
+                demo: 'https://amfar-production.up.railway.app',
                 featured: true,
-                stats: '10K+ Assets'
-            },
-            {
-                id: 3,
-                title: 'Real-Time Reporting Dashboard & App Monitoring',
-                category: ['Data Engineering', 'ML/AI'],
-                description: 'Built a real-time performance monitoring dashboard using FastAPI and Docker, enabling clinical end-users to track live inference metrics and KPIs with sub-200ms response time. Integrated MLflow for automated model versioning and 100% environment reproducibility.',
-                image: null,
-                tags: ['FastAPI', 'MLflow', 'Docker', 'Python', 'Real-Time Monitoring'],
-                github: null,
-                demo: null,
-                featured: true,
-                stats: '<200ms Response'
+                stats: '25 API Endpoints'
             },
             {
                 id: 4,
@@ -2630,10 +2634,12 @@
         skillCategories.forEach(cat => {
             const card = document.createElement('div');
             card.className = 'skill-card';
+            card.style.setProperty('--sk-accent', cat.accent);
             card.innerHTML = `
                 <div class="skill-card-header">
                     <div class="skill-accent-bar" style="background:${cat.accent}"></div>
                     <div class="skill-category-name">${cat.name}</div>
+                    <span class="skill-count">${cat.skills.length}</span>
                 </div>
                 <div class="skill-pills">
                     ${cat.skills.map(s => `<span class="skill-pill">${s}</span>`).join('')}
@@ -2643,7 +2649,7 @@
         });
 
         // Render projects with filtering
-        const categories = ['All', 'ML/AI', 'NLP', 'Bioinformatics', 'Medical Imaging', 'Data Engineering', 'Data Science'];
+        const categories = [];
         const filterButtons = document.getElementById('filterButtons');
         const projectsGrid = document.getElementById('projectsGrid');
         let activeCategory = 'All';
