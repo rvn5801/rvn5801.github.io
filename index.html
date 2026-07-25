@@ -1974,9 +1974,9 @@
             <div class="about-right">
                 <div class="about-bio">
                     <h3 class="about-bio-title">Data-driven problem solver</h3>
-                    <p>I'm a graduate student passionate about leveraging machine learning and advanced analytics to solve real-world problems in healthcare and data science. Currently working as a Graduate Research Assistant at Stony Brook Cancer Center, where I focus on bioinformatics and single-cell genomics.</p>
-                    <p>My expertise spans deep learning, NLP, statistical modeling, and large-scale data processing. I enjoy building end-to-end solutions that bridge the gap between research and production systems.</p>
-                    <p>When I'm not coding or analyzing data, you can find me exploring new ML techniques, contributing to open-source projects, or mentoring aspiring data scientists.</p>
+                    <p>I recently completed my Master's in Data Science at Stony Brook University and now work as a Research Support Specialist at Stony Brook Cancer Center, applying machine learning and statistical modeling to computational genomics and healthcare problems.</p>
+                    <p>My expertise spans deep learning, NLP and generative AI, bioinformatics, and large-scale data processing. I enjoy building end-to-end solutions that bridge the gap between research and production systems.</p>
+                    <p>When I'm not coding or analyzing data, you can find me exploring new ML techniques, building side projects at hackathons, and contributing to open-source work.</p>
                 </div>
             </div>
         </div>
@@ -2431,7 +2431,8 @@
                 image: null,
                 tags: ['Python', 'Flask', 'MySQL', 'SciPy', 'Chart.js', 'D3.js', 'GPT-4o-mini'],
                 github: 'https://github.com/rvn5801/amfAR',
-                demo: 'https://amfar-production.up.railway.app',
+                demo: 'https://drive.google.com/file/d/1Jur5C8S-indemANC4La0IVgvg8Ql9bEE/view?usp=sharing',
+                video: 'https://drive.google.com/file/d/1Jur5C8S-indemANC4La0IVgvg8Ql9bEE/view?usp=sharing',
                 featured: true,
                 stats: '25 API Endpoints'
             },
@@ -2683,7 +2684,7 @@
                     const safeTitle = proj.title.replace(/'/g, "\\'");
                     const safeVideo = proj.video.replace(/'/g, "\\'");
                     thumbHtml = `
-                        <div class="project-thumb-wrap" onclick="openVideoModal('${safeTitle}', '${safeVideo}')" title="Watch demo">
+                        <div class="project-thumb-wrap" onclick="playProjectVideo('${safeTitle}', '${safeVideo}')" title="Watch demo">
                             <img src="${proj.image}" alt="${proj.title}" onerror="this.style.display='none'">
                             <div class="project-play-btn">
                                 <div class="play-icon">
@@ -2706,7 +2707,7 @@
                     <div class="project-buttons">
                         ${proj.github ? `<a href="${proj.github}" target="_blank" class="project-btn project-btn-github">GitHub</a>` : ''}
                         ${proj.demo ? `<a href="${proj.demo}" target="_blank" class="project-btn project-btn-demo">Live Demo ↗</a>` : ''}
-                        ${proj.video ? `<button onclick="openVideoModal('${proj.title.replace(/'/g,"\\'")}','${proj.video}')" class="project-btn project-btn-demo">Watch Demo ▶</button>` : ''}
+                        ${proj.video ? `<button onclick="playProjectVideo('${proj.title.replace(/'/g,"\\'")}','${proj.video}')" class="project-btn project-btn-demo">Watch Demo ▶</button>` : ''}
                     </div>
                 `;
                 projectsGrid.appendChild(card);
@@ -2856,6 +2857,12 @@
             iframe.style.display = 'none';
             document.getElementById('videoModal').classList.remove('open');
             document.body.style.overflow = '';
+        }
+
+        // Route a project's video: Google Drive links embed, direct files play inline
+        function playProjectVideo(title, src) {
+            if (/drive\.google\.com/.test(src)) openDriveVideo(src, title);
+            else openVideoModal(title, src);
         }
 
         function openVideoModal(title, videoSrc) {
