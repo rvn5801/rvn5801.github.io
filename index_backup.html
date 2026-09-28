@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkata Narayana Redrouthu - Data Science Portfolio</title>
+    <base href="./">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s 0.2s backwards;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s 0.4s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: white;
+            color: #1e40af;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #2563eb;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: 700;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .education-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: left;
+        }
+
+        .education-box h3 {
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .education-box p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .about-text {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .about-text h3 {
+            color: #2c3e50;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            border-left: 4px solid #2563eb;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .experience-date {
+            color: #666;
+            font-style: italic;
+        }
+
+        .experience-item ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .project-content ul {
+            color: #666;
+            margin-bottom: 1rem;
+            list-style-position: inside;
+            flex-grow: 1;
+        }
+
+        .project-content li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-category h3 {
+            color: #2563eb;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.6rem 0;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Learning Section */
+        #learning {
+            background: #f9fafb;
+        }
+
+        .learning-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        .learning-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .learning-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .learning-category.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f3f4f6;
+        }
+
+        .category-header h3 {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin: 0;
+        }
+
+        .learning-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .learning-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: #f9fafb;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .learning-item:hover {
+            background: #f3f4f6;
+            transform: translateX(5px);
+        }
+
+        .learning-item.completed {
+            border-left: 4px solid #10b981;
+        }
+
+        .learning-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .learning-content {
+            flex: 1;
+        }
+
+        .learning-content h4 {
+            font-size: 1.2rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .learning-content p {
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+
+        .course-provider {
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .completion-date {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Progress Bar */
+        .learning-progress {
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .book-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f9fafb;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .book-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-cover {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .book-info h4 {
+            font-size: 1rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .book-info p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+
+        .reading-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Skills Developing Grid */
+        .skills-developing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-dev-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .skill-level {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-level-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8b5cf6 0%, #a78bfa 100%);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        /* Project Links */
+        .project-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link.live-demo {
+            background: #2563eb;
+            color: white;
+        }
+
+        .project-link.live-demo:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .project-link.github {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .project-link.github:hover {
+            background: #e5e7eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-link svg {
+            flex-shrink: 0;
+        }
+
+        /* Publications Section */
+        .publications-list {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .publication-item {
+            padding: 1rem;
+            border-left: 3px solid #2563eb;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+
+        .publication-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .pub-row {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .pub-text {
+            flex: 1 1 480px;
+        }
+
+        .publication-title {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
+        }
+
+        .publication-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .publication-link:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        .publication-details {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Certificate preview shown to the right of the publication */
+        .cert-preview {
+            width: 260px;
+            max-width: 35%;
+            min-width: 160px;
+            background: white;
+            border-radius: 6px;
+            padding: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            display: none;
+            /* toggled via JS */
+            align-self: flex-start;
+        }
+
+        .cert-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .cert-preview a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 0.4rem;
+            text-align: center;
+        }
+
+        /* Thumbnail and view button */
+        .cert-thumb {
+            width: 80px;
+            height: auto;
+            border-radius: 4px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .view-cert-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.35rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .view-cert-btn:hover {
+            background: #1e40af;
+        }
+
+        @media (max-width: 768px) {
+            .cert-preview {
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+            }
+
+            .learning-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-developing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Coursework Folder Styles */
+        .coursework-folder {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .coursework-folder:hover {
+            border-color: #2563eb;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.1);
+        }
+
+        .folder-title {
+            font-size: 1.4rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .folder-header {
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .folder-header:hover .folder-title {
+            color: #2563eb;
+        }
+
+        .folder-toggle-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .coursework-folder.collapsed .folder-toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .folder-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .folder-content {
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin-bottom 0.3s ease;
+            opacity: 1;
+        }
+
+        .coursework-folder.collapsed .folder-content {
+            max-height: 0;
+            opacity: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+
+        .coursework-folder.collapsed .folder-description {
+            display: none;
+        }
+
+        .coursework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .coursework-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #2563eb;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .coursework-card:hover {
+            background: white;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+            transform: translateY(-4px);
+            border-color: #2563eb;
+        }
+
+        .coursework-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .coursework-card h3 {
+            font-size: 1.1rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            font-weight: 600;
+        }
+
+        .coursework-subtitle {
+            color: #2563eb;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .coursework-details {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .coursework-details p {
+            color: #4b5563;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .coursework-details strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .coursework-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .coursework-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: #dbeafe;
+            color: #1e40af;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #93c5fd;
+        }
+
+        .coursework-link:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .coursework-link svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            fill: #2563eb;
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: #2563eb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: #2563eb;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+
+        .submit-button:hover {
+            background: #1e40af;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                padding: 1rem 0;
+            }
+
+            nav a {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Venkata Narayana Redrouthu</h1>
+        <p>Data Science Graduate Student | Machine Learning & Bioinformatics Specialist</p>
+        <div class="hero-links">
+            <a href="#contact" class="cta-button">Get In Touch</a>
+            <a href="https://github.com/rvn5801" class="cta-button secondary" target="_blank">View GitHub</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="assets/profile.png" alt="Profile picture">
+                </div>
+                <div class="education-box">
+                    <h3>🎓 Education</h3>
+                    <p><strong>Stony Brook University</strong></p>
+                    <p>Master of Science in Data Science</p>
+                    <p>GPA: 3.39</p>
+                    <p>Jan 2024 - Present</p>
+                </div>
+            </div>
+            <div class="about-text">
+                <p>I'm a Data Science graduate student at Stony Brook University with a passion for leveraging machine
+                    learning and bioinformatics to solve complex problems. My expertise spans from developing novel deep
+                    learning architectures to implementing large-scale document classification systems using LLMs.</p>
+
+                <p>Currently, I work as a Graduate Research Assistant at Stony Brook Cancer Center, where I've
+                    successfully migrated critical single-cell multiome pipelines to achieve 2x faster computation and
+                    20% memory reduction. My work bridges the gap between computational efficiency and biological
+                    insight.</p>
+
+                <h3>Core Competencies</h3>
+                <p>I specialize in machine learning, natural language processing, and bioinformatics, with hands-on
+                    experience in developing production-grade applications. From designing DS-AttentionUNet
+                    architectures for medical image segmentation to building automated document classification systems
+                    processing 100K+ documents, I bring both theoretical knowledge and practical implementation skills
+                    to every project.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="experience-title">Graduate Research Assistant</div>
+                    <div class="experience-company">Stony Brook Cancer Center</div>
+                </div>
+                <div class="experience-date">Jan 2025 - Present | Stony Brook, NY</div>
+            </div>
+            <ul>
+                <li>Migrated a single-cell multiome pipeline from R (Seurat/Signac) to Python (Scanpy/SnapATAC2),
+                    achieving <strong>2x faster computation</strong>, <strong>20% memory reduction</strong>, and
+                    <strong>99% reproducibility</strong> for 23GB 10X Genomics datasets
+                </li>
+                <li>Implemented an optimized Python workflow to analyze 10x Genomics multiome data, replicating
+                    experimental findings on acidosis-driven intratumor heterogeneity and establishing standardized
+                    preprocessing pipelines</li>
+                <li>Designed and implemented agent-based simulations to model cancer cell adaptation under fluctuating
+                    acidosis, providing visual and quantitative insights into cellular lineage diversity and adaptive
+                    behavior dynamics</li>
+            </ul>
+        </div>
+        <video width="600" controls>
+            <source src="assets/agent_demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🏥</div>
+                <div class="project-content">
+                    <h3>DS-AttentionUNet: High-Recall Skin Lesion Segmentation</h3>
+                    <ul>
+                        <li>Designed a novel DS-AttentionUNet architecture with Attention Gates and Deep Supervision for
+                            medical image segmentation</li>
+                        <li>Achieved <strong>92.16% recall</strong> using composite loss function and mixed-precision
+                            training</li>
+                        <li>Built modular end-to-end application with CLI for streamlined deployment</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Medical Imaging</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://rvn5801-ds-attentionunet.hf.space/docs" class="project-link live-demo"
+                        target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="currentColor"
+                                d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                        </svg>
+                        Live Demo
+                    </a>
+                    <a href="https://github.com/rvn5801/Skin-Lesion-Segmentation-with-Deep-Supervision-and-Attention-Mechanisms"
+                        class="project-link github" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="currentColor"
+                                d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                        </svg>
+                        Code
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">📄</div>
+            <div class="project-content">
+                <h3>Automated Document Classification with LLMs</h3>
+                <ul>
+                    <li>Built classification framework processing <strong>100K+ documents</strong> with <strong>73%
+                            accuracy</strong> using custom LLM-based hierarchical taxonomy</li>
+                    <li>Reduced document retrieval latency by <strong>40%</strong> with OpenSearch and custom vector
+                        indexing</li>
+                    <li>Developed Django app cutting visualization time from 4 hours to 5 minutes, supporting
+                        <strong>10K+ daily queries</strong>
+                    </li>
+                </ul>
+                <div class="project-tags">
+                    <span class="tag">LLMs</span>
+                    <span class="tag">NLP</span>
+                    <span class="tag">OpenSearch</span>
+                    <span class="tag">Django</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">📊</div>
+            <div class="project-content">
+                <h3>Custom R Statistical Package Development</h3>
+                <ul>
+                    <li>Architected production-grade R package with <strong>15+ statistical functions</strong></li>
+                    <li>Reduced learning curve by <strong>60%</strong> through comprehensive R Markdown documentation
+                    </li>
+                    <li>Reduced runtime errors by <strong>80%</strong> with robust error-handling system</li>
+                </ul>
+                <div class="project-tags">
+                    <span class="tag">R</span>
+                    <span class="tag">Statistics</span>
+                    <span class="tag">Package Development</span>
+                    <span class="tag">Documentation</span>
+                </div>
+            </div>
+            <div class="project-links">
+                <!-- <a href="https://rvn5801-ds-attentionunet.hf.space/docs" class="project-link live-demo" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                            </svg>
+                            Live Demo
+                        </a> -->
+                <a href="https://github.com/rvn5801/Custom-R-Statistical-Package" class="project-link github"
+                    target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                        <path fill="currentColor"
+                            d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                    </svg>
+                    Code
+                </a>
+            </div>
+        </div>
+        </div>
+
+
+    </section>
+
+    <!-- My Learning Section -->
+    <section id="learning">
+        <h2 class="section-title">My Learning</h2>
+
+        <!-- Big Data Analysis Coursework -->
+        <div class="coursework-folder" data-folder="big-data">
+            <div class="folder-header" onclick="toggleFolder(this)">
+                <h3 class="folder-title">
+                    <span class="folder-toggle-icon">▼</span>
+                    📁 Big Data Analysis
+                </h3>
+            </div>
+
+            <p class="folder-description">
+                Distributed computing coursework demonstrating MapReduce, MPI-based graph processing, and large‑scale
+                optimization on HPC clusters.
+            </p>
+
+            <div class="coursework-grid folder-content">
+
+                <!-- Assignment 1: MapReduce -->
+                <div class="coursework-card">
+                    <div class="coursework-icon">🗂️</div>
+                    <h3>MapReduce Implementation</h3>
+                    <p class="coursework-subtitle">Parallel Data Processing with Mappers & Reducers</p>
+
+                    <div class="coursework-details">
+                        <p><strong>Topics:</strong> MapReduce paradigm, data partitioning, aggregation pipelines,
+                            distributed execution</p>
+                        <p><strong>Skills:</strong> Python, Bash, SLURM job scheduling, parallel I/O, reducer logic
+                            design</p>
+                        <p><strong>Dataset:</strong> Structured CSV/tabular data split across distributed partitions</p>
+                    </div>
+
+                    <div class="coursework-links">
+                        <a href="https://github.com/rvn5801/Big-Data-Analysis/tree/main/Assignment1"
+                            class="coursework-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor"
+                                    d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Assignment 2: PageRank MPI -->
+                <div class="coursework-card">
+                    <div class="coursework-icon">📊</div>
+                    <h3>PageRank with MPI</h3>
+                    <p class="coursework-subtitle">Distributed Graph Processing with MPI4Py</p>
+
+                    <div class="coursework-details">
+                        <p><strong>Topics:</strong> PageRank algorithm, sparse graph processing, MPI communication
+                            patterns, iterative convergence</p>
+                        <p><strong>Skills:</strong> MPI4Py, OpenMPI, collective operations (broadcast, allreduce), graph
+                            construction</p>
+                        <p><strong>Dataset:</strong> Directed graph edge lists (node-to-node relationships)</p>
+                    </div>
+
+                    <div class="coursework-links">
+                        <a href="https://github.com/rvn5801/Big-Data-Analysis/tree/main/Assignment2"
+                            class="coursework-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor"
+                                    d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Assignment 3: ADMM Logistic Regression -->
+                <div class="coursework-card">
+                    <div class="coursework-icon">⚙️</div>
+                    <h3>ADMM for Logistic Regression</h3>
+                    <p class="coursework-subtitle">Distributed Optimization & Consensus Algorithms</p>
+
+                    <div class="coursework-details">
+                        <p><strong>Topics:</strong> ADMM optimization, distributed machine learning, consensus updates,
+                            iterative convergence</p>
+                        <p><strong>Skills:</strong> Python, MPI4Py, numerical optimization, SLURM batch jobs,
+                            multi-process synchronization</p>
+                        <p><strong>Dataset:</strong> Feature-target datasets partitioned across compute nodes</p>
+                    </div>
+
+                    <div class="coursework-links">
+                        <a href="https://github.com/rvn5801/Big-Data-Analysis/tree/main/Assignment3"
+                            class="coursework-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor"
+                                    d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Medical Image Analysis Coursework -->
+        <div class="coursework-folder" data-folder="medical-image">
+            <div class="folder-header" onclick="toggleFolder(this)">
+                <h3 class="folder-title">
+                    <span class="folder-toggle-icon">▼</span>
+                    📁 Medical Image Analysis
+                </h3>
+            </div>
+            <p class="folder-description">Comprehensive coursework from Stony Brook University covering preprocessing,
+                deep learning, segmentation, and registration techniques in medical imaging.</p>
+
+            <div class="coursework-grid folder-content">
+                <div class="coursework-card">
+                    <div class="coursework-icon">🔍</div>
+                    <h3>Medical Image Preprocessing</h3>
+                    <p class="coursework-subtitle">Image Normalization, Bias Correction, Resampling</p>
+                    <div class="coursework-details">
+                        <p><strong>Topics:</strong> Histogram normalization, bias field correction, spatial resampling,
+                            coordinate systems</p>
+                        <p><strong>Skills:</strong> NumPy operations, image processing, statistical methods, SciPy
+                            interpolation</p>
+                        <p><strong>Dataset:</strong> Hippocampus CT volumes (20 3D volumes, NIfTI format)</p>
+                    </div>
+                    <div class="coursework-links">
+                        <a href="https://github.com/rvn5801/Medical-Image-Analysis/tree/main/HW1"
+                            class="coursework-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor"
+                                    d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="coursework-card">
+                    <div class="coursework-icon">🫀</div>
+                    <h3>Chest X-ray Classification</h3>
+                    <p class="coursework-subtitle">Deep Learning with MONAI & Transfer Learning</p>
+                    <div class="coursework-details">
+                        <p><strong>Topics:</strong> MONAI pipelines, transfer learning, class imbalance handling,
+                            augmentation strategies</p>
+                        <p><strong>Skills:</strong> PyTorch, MONAI, EfficientNet, handling imbalanced medical data, GPU
+                            training</p>
+                        <p><strong>Dataset:</strong> CheXpert chest X-rays (3 conditions: No Finding, Pleural Effusion,
+                            Consolidation)</p>
+                    </div>
+                    <div class="coursework-links">
+                        <a href="https://github.com/rvn5801/Medical-Image-Analysis/tree/main/HW2"
+                            class="coursework-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor"
+                                    d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="coursework-card">
+                    <div class="coursework-icon">🩸</div>
+                    <h3>3D Artery Segmentation</h3>
+                    <p class="coursework-subtitle">3D U-Net Segmentation with Advanced Filtering</p>
+                    <div class="coursework-details">
+                        <p><strong>Topics:</strong> 3D U-Net architecture, patch-based training, vesselness filtering,
+                            instance normalization</p>
+                        <p><strong>Skills:</strong> 3D convolutions, MONAI data loaders, GPU memory optimization,
+                            medical image metrics</p>
+                        <p><strong>Dataset:</strong> CT artery volumes (100 annotated CT volumes with arterial
+                            segmentation)</p>
+                    </div>
+                    <div class="coursework-links">
+                        <a href="https://github.com/rvn5801/Medical-Image-Analysis/tree/main/HW3"
+                            class="coursework-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor"
+                                    d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="coursework-card">
+                    <div class="coursework-icon">🔄</div>
+                    <h3>Medical Image Registration</h3>
+                    <p class="coursework-subtitle">Deformable Registration with ANTs & VoxelMorph</p>
+                    <div class="coursework-details">
+                        <p><strong>Topics:</strong> ANTs registration, affine transforms, deformable registration,
+                            neural networks for registration</p>
+                        <p><strong>Skills:</strong> Coordinate transformations, SimpleITK, VoxelMorph, multi-modal
+                            registration, transform composition</p>
+                        <p><strong>Dataset:</strong> OASIS brain MRI (394 aligned brain volumes for registration)</p>
+                    </div>
+                    <div class="coursework-links">
+                        <a href="https://github.com/rvn5801/Medical-Image-Analysis/tree/main/HW4"
+                            class="coursework-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor"
+                                    d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills & Expertise</h2>
+
+        <div class="skills-container">
+
+            <!-- Technical & Programming -->
+            <div class="skill-category">
+                <h3>💻 Technical & Programming</h3>
+                <ul class="skill-list">
+                    <li>Python</li>
+                    <li>R (Package Development)</li>
+                    <li>SQL</li>
+                    <li>Java</li>
+                    <li>C / C++</li>
+                    <li>OCaml</li>
+                    <li>HTML / CSS</li>
+                    <li>Bash Scripting</li>
+                    <li>Object-Oriented & Modular Design</li>
+                    <li>Parallel & Distributed Computing (MPI, MapReduce)</li>
+                    <li>High-Performance Computing (HPC, SLURM)</li>
+                </ul>
+            </div>
+
+            <!-- Machine Learning & AI -->
+            <div class="skill-category">
+                <h3>🤖 Machine Learning & AI</h3>
+                <ul class="skill-list">
+                    <li>PyTorch, TensorFlow, MONAI</li>
+                    <li>LightGBM, Random Forest, Classical ML</li>
+                    <li>Predictive Modeling & Forecasting</li>
+                    <li>Classification, Clustering & Regression</li>
+                    <li>2D/3D Deep Learning Models</li>
+                    <li>Transfer Learning & Feature Engineering</li>
+                    <li>Hyperparameter Tuning & Experimentation</li>
+                    <li>Model Evaluation (AUC, F1, Dice, PR Curves)</li>
+                </ul>
+            </div>
+
+            <!-- NLP & LLMs -->
+            <div class="skill-category">
+                <h3>🧠 NLP & Large Language Models</h3>
+                <ul class="skill-list">
+                    <li>LLM Agents & Workflow Orchestration</li>
+                    <li>RAG Pipelines & Fine-Tuning</li>
+                    <li>LoRA / QLoRA / RLHF</li>
+                    <li>Sentence Transformers & Embeddings</li>
+                    <li>Vector Indexing & Semantic Search</li>
+                    <li>Hierarchical & Multi-Label Classification</li>
+                    <li>Generative AI Applications</li>
+                </ul>
+            </div>
+
+            <!-- Bioinformatics & Medical Imaging -->
+            <div class="skill-category">
+                <h3>🧬 Bioinformatics & Medical Imaging</h3>
+                <ul class="skill-list">
+                    <li>ScanPy, AnnData, SnapATAC2</li>
+                    <li>Single-Cell Multiomics (scRNA-seq, scATAC-seq)</li>
+                    <li>Medical Image Processing (CT, MRI, X-ray)</li>
+                    <li>NIfTI, DICOM, SimpleITK, nibabel</li>
+                    <li>Segmentation, Registration & Vesselness Filtering</li>
+                    <li>Patch-Based & Multi-Resolution Pipelines</li>
+                </ul>
+            </div>
+
+            <!-- Data Engineering & Analysis -->
+            <div class="skill-category">
+                <h3>📊 Data Engineering & Analysis</h3>
+                <ul class="skill-list">
+                    <li>Data Cleaning, Transformation & ETL Pipelines</li>
+                    <li>Large-Scale Data Handling & Optimization</li>
+                    <li>Graph Data Processing & Algorithms</li>
+                    <li>Text Preprocessing & Feature Extraction</li>
+                    <li>Statistical Modeling & Custom Algorithms</li>
+                </ul>
+            </div>
+
+            <!-- Tools, Frameworks & Platforms -->
+            <div class="skill-category">
+                <h3>🛠️ Tools, Frameworks & Platforms</h3>
+                <ul class="skill-list">
+                    <li>Tableau, Matplotlib, Seaborn</li>
+                    <li>Django, Flask</li>
+                    <li>AWS (S3, Lambda, OpenSearch)</li>
+                    <li>Git & GitHub</li>
+                    <li>Jupyter Notebook</li>
+                    <li>Virtual Environments & Dependency Management</li>
+                </ul>
+            </div>
+
+            <!-- Workflow, Collaboration & Professional Skills -->
+            <div class="skill-category">
+                <h3>📁 Workflow, Collaboration & Professional Skills</h3>
+                <ul class="skill-list">
+                    <li>Version Control & Branching Strategies</li>
+                    <li>Reproducible Research & Experiment Tracking</li>
+                    <li>Technical Documentation & Reporting</li>
+                    <li>Project Structuring & Modular Pipelines</li>
+                    <li>Debugging, Optimization & Performance Tuning</li>
+                    <li>Cross-Functional Collaboration</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <h2 class="section-title">Publications & Conferences</h2>
+        <div class="publications-list">
+            <div class="publication-item">
+                <div class="pub-row">
+                    <div class="pub-text">
+                        <div class="publication-title">House Price Prediction Using Machine Learning Algorithms</div>
+                        <button class="view-cert-btn" data-cert="assets/conference.png" aria-expanded="false"
+                            style="margin-bottom:0.75rem;">View certificate</button>
+                        <div class="publication-details">International Conference on Emerging Trends in Electronics and
+                            Communication Engineering, Rajeev Gandhi Memorial College of Engineering and Technology,
+                            Nandyal, April 2023</div>
+                    </div>
+                    <div class="cert-preview" aria-hidden="true"></div>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-row">
+                    <div class="pub-text">
+                        <div class="publication-title">Big Data Analytics on Social Networks to Detect Melancholy in
+                            Real-Time</div>
+                        <button class="view-cert-btn" data-cert="assets/big_data_analytics.png" aria-expanded="false"
+                            style="margin-bottom:0.75rem;">View certificate</button>
+                        <div class="publication-details">International Journal of Scientific Research in Engineering and
+                            Management, Vol. 06, Issue 12, December 2022</div>
+                    </div>
+                    <div class="cert-preview" aria-hidden="true"></div>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-row">
+                    <div class="pub-text">
+                        <div class="publication-title">Artificial Intelligence Chatbot Using Python</div>
+                        <button class="view-cert-btn" data-cert="assets/ai_chatbot.png" aria-expanded="false"
+                            style="margin-bottom:0.75rem;">View certificate</button>
+                        <div class="publication-details">Journal of Engineering, Computing and Architecture, Vol. 12,
+                            Issue 3, March 2022</div>
+                    </div>
+                    <div class="cert-preview" aria-hidden="true"></div>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="pub-row">
+                    <div class="pub-text">
+                        <div class="publication-title">A Smart Mirror Using Raspberry Pi Based on IOT</div>
+                        <button class="view-cert-btn" data-cert="assets/iot.png" aria-expanded="false"
+                            style="margin-bottom:0.75rem;">View certificate</button>
+                        <div class="publication-details">International Research Journal of Engineering and Technology,
+                            Vol. 08, Issue 12, October 2021</div>
+                    </div>
+                    <div class="cert-preview" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    <a href="mailto:redrouthu2025@gmail.com">redrouthu2025@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    <span>(934) 263-3283</span>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                    <a href="https://linkedin.com/in/venkata-redrouthu" target="_blank">LinkedIn Profile</a>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    <a href="https://github.com/rvn5801" target="_blank">GitHub Profile</a>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                    <span>Stony Brook, NY</span>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Venkata Narayana Redrouthu. All rights reserved.</p>
+    </footer>
+
+    <!-- Certificate modal (inserted before scripts so script can reference elements) -->
+    <div id="cert-modal" role="dialog" aria-modal="true" aria-hidden="true"
+        style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;z-index:2000;">
+        <div id="cert-backdrop" style="position:absolute;inset:0;background:rgba(0,0,0,0.6);"></div>
+        <div
+            style="position:relative;max-width:900px;width:90%;background:#fff;border-radius:8px;padding:1rem;box-shadow:0 20px 50px rgba(0,0,0,0.4);z-index:2001;">
+            <button id="cert-close" aria-label="Close certificate"
+                style="position:absolute;right:8px;top:8px;background:#eee;border:none;padding:6px;border-radius:4px;cursor:pointer;">✕</button>
+            <div style="text-align:center;">
+                <a id="cert-open-full" href="#" target="_blank"
+                    style="display:block;margin-bottom:0.5rem;color:#2563eb;text-decoration:none;">Open full image</a>
+                <img id="cert-img" src="" alt="Certificate preview"
+                    style="max-width:100%;height:auto;border-radius:4px;display:block;margin:0 auto;" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+
+            // In a real implementation, you would send this data to a backend
+            alert('Thank you for your message! I will get back to you soon.');
+            form.reset();
+        }
+
+        // Add active class to navigation on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Publication certificate preview toggles
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.publication-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const certFile = link.dataset.cert; // expected to be relative path like 'certificate1.jpg' or 'conference.png'
+                    const item = link.closest('.publication-item');
+                    const preview = item.querySelector('.cert-preview');
+
+                    // If preview already showing this certificate, hide it
+                    if (preview.dataset.current === certFile) {
+                        preview.innerHTML = '';
+                        preview.style.display = 'none';
+                        preview.removeAttribute('data-current');
+                        preview.setAttribute('aria-hidden', 'true');
+                        return;
+                    }
+
+                    // Otherwise show certificate (image) and link to open in new tab
+                    // User should place certificate image/pdf in the same folder as index.html.
+                    // Accept both relative filenames and file URLs. Convert Windows backslashes to forward slashes.
+                    let normalized = certFile.replace(/\\/g, '/');
+                    // If user provided an absolute Windows path like C:/..., convert to file URL
+                    if (/^[A-Za-z]:\//.test(normalized)) {
+                        normalized = 'file:///' + normalized.replace(/^([A-Za-z]):\//, '$1:/');
+                    }
+
+                    const isPdf = normalized.toLowerCase().endsWith('.pdf');
+                    if (isPdf) {
+                        preview.innerHTML = `<a href="${normalized}" target="_blank">Open certificate (PDF)</a>`;
+                    } else {
+                        preview.innerHTML = `<a href="${normalized}" target="_blank"><img src="${normalized}" alt="Certificate"></a>`;
+                    }
+                    preview.style.display = 'block';
+                    preview.dataset.current = certFile;
+                    preview.setAttribute('aria-hidden', 'false');
+                });
+            });
+        });
+
+        // Certificate modal behavior (thumbnail / View button)
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('cert-modal');
+            const backdrop = document.getElementById('cert-backdrop');
+            const img = document.getElementById('cert-img');
+            const openFull = document.getElementById('cert-open-full');
+            const closeBtn = document.getElementById('cert-close');
+
+            function openCert(path) {
+                if (!path) return;
+                // normalize backslashes
+                let normalized = path.replace(/\\/g, '/');
+                // prefer relative paths; if absolute Windows path, convert to file URL
+                if (/^[A-Za-z]:\//.test(normalized)) {
+                    normalized = 'file:///' + normalized.replace(/^([A-Za-z]):\//, '$1:/');
+                }
+                img.src = normalized;
+                openFull.href = normalized;
+                modal.style.display = 'flex';
+                modal.setAttribute('aria-hidden', 'false');
+                closeBtn.focus();
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeCert() {
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+                img.src = '';
+                document.body.style.overflow = '';
+            }
+
+            // Clicks on view button or thumbnail open modal
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest('.view-cert-btn, .cert-thumb');
+                if (btn) {
+                    e.preventDefault();
+                    const path = btn.dataset.cert || btn.getAttribute('src');
+                    openCert(path);
+                    return;
+                }
+
+                // close when clicking backdrop or close button
+                if (e.target === backdrop || e.target === closeBtn) {
+                    closeCert();
+                }
+            });
+
+            // keyboard: Esc closes modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeCert();
+                }
+            });
+        });
+
+        // Coursework folder toggle functionality
+        function toggleFolder(headerElement) {
+            const folder = headerElement.closest('.coursework-folder');
+            folder.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+
+</html>
