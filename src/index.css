@@ -97,6 +97,54 @@ a:hover {
   margin-bottom: 1.25rem;
 }
 
+.sidebar .location {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.sidebar .resume-btn {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.case-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--link);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.case-study {
+  margin-top: 0.75rem;
+  border-left: 3px solid var(--link);
+  padding-left: 1rem;
+}
+
+.case-block {
+  margin-bottom: 0.75rem;
+}
+
+.case-block h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.exp-video {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 8px;
+  margin-top: 0.75rem;
+}
+
 .social-row {
   display: flex;
   gap: 1rem;

@@ -26,7 +26,11 @@ export default function Experience() {
               ))}
             </ul>
             <p className="tag-list">{exp.tags.join(' · ')}</p>
-            {exp.demo && <a href={exp.demo} target="_blank" rel="noopener">Watch Demo</a>}
+            {exp.demo && (
+              <video className="exp-video" controls preload="none" poster={exp.poster} src={exp.demo}>
+                Your browser does not support the video tag.
+              </video>
+            )}
           </div>
         </div>
       ))}
