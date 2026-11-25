@@ -19,7 +19,7 @@ const socials = [
 export default function Hero() {
   return (
     <aside className="sidebar">
-      <img src="assets/headshot-tech-engineer.png" alt="Venkata Narayana Redrouthu"
+      <img src="assets/headshot-tech-engineer.jpg" alt="Venkata Narayana Redrouthu"
         onError={e => { e.target.style.display = 'none'; }}
       />
       <h1>Venkata Narayana Redrouthu</h1>
